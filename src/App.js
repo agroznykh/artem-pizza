@@ -1,6 +1,5 @@
 import { PizzaConfigurator } from './components/PizzaConfigurator'
 import { PizzaSubmit } from './components/PizzaSubmit'
-import { usePizzaState } from './PizzaProvider'
 import { PizzaResult } from './components/PizzaResult'
 import { LABELS } from './values'
 
