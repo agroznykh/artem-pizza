@@ -16,12 +16,7 @@ module.exports = {
     ],
 
     // Область. Она характеризует фрагмент кода, которую затронули изменения
-    scopes: [
-        { name: 'components' },
-        { name: 'tutorial' },
-        { name: 'catalog' },
-        { name: 'product' }
-    ],
+    scopes: [{ name: 'comp' }, { name: 'tutor' }, { name: 'cat' }, { name: 'prod' }],
 
     // Возможность задать спец ОБЛАСТЬ для определенного типа коммита (пример для 'fix')
     /*
@@ -48,7 +43,7 @@ module.exports = {
     },
 
     // Разрешим собственную ОБЛАСТЬ
-    allowCustomScopes: true,
+    allowCustomScopes: false,
 
     // Запрет на Breaking Changes
     allowBreakingChanges: false,
@@ -57,5 +52,5 @@ module.exports = {
     footerPrefix: 'МЕТА ДАННЫЕ:',
 
     // limit subject length
-    subjectLimit: 72,
+    subjectLimit: 100,
 }
