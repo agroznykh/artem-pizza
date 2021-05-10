@@ -9,7 +9,6 @@ export function PizzaChoice({ name, variants, selector, action }) {
 
     const dispatchChange = (e) => {
         dispatch(action(variants[e.target.value]))
-        dispatch(actionSetUnsaved())
     }
 
     return (

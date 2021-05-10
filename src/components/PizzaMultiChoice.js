@@ -1,7 +1,7 @@
 import { actionSetUnsaved, useSelector } from '../reducer'
 import { useDispatch } from '../PizzaProvider'
-import {LabeledPiece} from "./LabeledPiece";
-import {LABELS} from "../values";
+import { LabeledPiece } from './LabeledPiece'
+import { LABELS } from '../values'
 
 export function PizzaMultiChoice({ name, variants, selector, actions: [add, remove] }) {
     const pizzaPropValue = useSelector(selector)
@@ -11,20 +11,23 @@ export function PizzaMultiChoice({ name, variants, selector, actions: [add, remo
         const payload = variants[e.target.value]
         const action = (e.target.checked ? add : remove)(payload)
         dispatch(action)
-        dispatch(actionSetUnsaved())
     }
 
-    return <LabeledPiece label={LABELS[name]}>{Object.entries(variants).map(([key, value]) => (
-        <div key={key}>
-            <input
-                type="checkbox"
-                id={key}
-                name={name}
-                value={key}
-                onChange={dispatchChange}
-                checked={pizzaPropValue.includes(value)}
-            />
-            <label htmlFor={key}>{value}</label>
-        </div>
-    ))}</LabeledPiece>
+    return (
+        <LabeledPiece label={LABELS[name]}>
+            {Object.entries(variants).map(([key, value]) => (
+                <div key={key}>
+                    <input
+                        type="checkbox"
+                        id={key}
+                        name={name}
+                        value={key}
+                        onChange={dispatchChange}
+                        checked={pizzaPropValue.includes(value)}
+                    />
+                    <label htmlFor={key}>{value}</label>
+                </div>
+            ))}
+        </LabeledPiece>
+    )
 }

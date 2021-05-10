@@ -1,6 +1,5 @@
 export const ACTION_NAMES = {
     SET_SAVED: 'SET_SAVED',
-    SET_UNSAVED: 'SET_UNSAVED',
     CHANGE_SIZE: 'CHANGE_SIZE',
     CHANGE_DOUGH: 'CHANGE_DOUGH',
     CHANGE_SAUCE: 'CHANGE_SAUCE',
@@ -23,4 +22,3 @@ const actionCreatorsFabric = () => {
 export const actions = actionCreatorsFabric()
 
 export const actionSetSaved = actions.SET_SAVED
-export const actionSetUnsaved = actions.SET_UNSAVED
