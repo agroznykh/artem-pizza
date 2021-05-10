@@ -26,8 +26,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm run build --if-present
+    - run: npm run release --if-present
     - run: npm test
+    - name: Create Sentry release
+      uses: getsentry/action-release@v1
+      env:
+        SENTRY_AUTH_TOKEN: ${{ secrents.SENTRY_AUTH_TOKEN }}
+        SENTRY_ORG: ${{ secrents.SENTRY_ORG }}
+        SENTRY_PROJECT: ${{ secrents.SENTRY_PROJECT }}
+      with:
+        environment: staging
+        sourcemaps: ./build
     - name: Deploy to Netlify
       uses: netlify/actions/cli@master
       env:

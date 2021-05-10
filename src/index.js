@@ -1,8 +1,20 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
+import * as Sentry from '@sentry/react'
+import { Integrations } from '@sentry/tracing'
 import './index.css'
 import App from './App'
 import { PizzaProvider } from './PizzaProvider'
+
+Sentry.init({
+    dsn: 'https://ab0682a1f3eb4bb49621afe25432432c@o642172.ingest.sentry.io/5757827',
+    integrations: [new Integrations.BrowserTracing()],
+    release: process.env.REACT_APP_SENTRY_RELEASE,
+    // Set tracesSampleRate to 1.0 to capture 100%
+    // of transactions for performance monitoring.
+    // We recommend adjusting this value in production
+    tracesSampleRate: 1.0,
+})
 
 ReactDOM.render(
     <StrictMode>

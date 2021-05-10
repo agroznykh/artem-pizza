@@ -12,7 +12,13 @@ function App() {
                 <PizzaConfigurator />
                 <PizzaSubmit />
                 <PizzaResult />
-                <br />
+                <button
+                    onClick={() => {
+                        throw new Error('Some error')
+                    }}
+                >
+                    Break the world
+                </button>
             </header>
         </div>
     )
