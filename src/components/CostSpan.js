@@ -1,6 +1,6 @@
-import {selectorCheeses, selectorMeats, selectorSize, selectorVegetables} from "../reducer";
-import {COSTS, SIZES} from "../values";
-import {usePizzaState} from "../PizzaProvider";
+import { selectorCheeses, selectorMeats, selectorSize, selectorVegetables } from '../state'
+import { COSTS, SIZES } from '../values'
+import { usePizzaState } from '../PizzaProvider'
 
 export function CostSpan() {
     const state = usePizzaState()

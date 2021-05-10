@@ -1,5 +1,5 @@
 import { PizzaChoice } from './PizzaChoice'
-import {CHEESES, DOUGHS, MEATS, SAUCES, SIZES, VEGETABLES} from '../values'
+import { CHEESES, DOUGHS, MEATS, SAUCES, SIZES, VEGETABLES } from '../values'
 import {
     actions,
     selectorCheeses,
@@ -7,21 +7,20 @@ import {
     selectorMeats,
     selectorSauce,
     selectorSize,
-    selectorVegetables
-} from '../reducer'
+    selectorVegetables,
+} from '../state'
 import { PizzaMultiChoice } from './PizzaMultiChoice'
 
 export const PizzaConfigurator = () => {
     return (
-        <div style={{display: 'flex', flexFlow: 'column', flexWrap: 'wrap'}}>
-
-            <div style={{display: 'flex', flexFlow: 'row', flexWrap: 'wrap'}}>
-                <PizzaChoice name="size"  variants={SIZES} action={actions.CHANGE_SIZE} selector={selectorSize} />
+        <div style={{ display: 'flex', flexFlow: 'column', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
+                <PizzaChoice name="size" variants={SIZES} action={actions.CHANGE_SIZE} selector={selectorSize} />
                 <PizzaChoice name="dough" variants={DOUGHS} action={actions.CHANGE_DOUGH} selector={selectorDough} />
                 <PizzaChoice name="sauce" variants={SAUCES} action={actions.CHANGE_SAUCE} selector={selectorSauce} />
             </div>
 
-            <div style={{display: 'flex', flexFlow: 'row', flexWrap: 'wrap'}}>
+            <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
                 <PizzaMultiChoice
                     name="cheeses"
                     variants={CHEESES}

@@ -1,7 +1,7 @@
 import { useDispatch } from '../PizzaProvider'
-import { actionSetSaved } from '../reducer'
+import { actionSetSaved } from '../state'
 import { CostSpan } from './CostSpan'
-import {LABELS} from "../values";
+import { LABELS } from '../values'
 
 export function PizzaSubmit() {
     const dispatch = useDispatch()

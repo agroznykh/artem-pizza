@@ -7,9 +7,9 @@ import {
     selectorSaved,
     selectorSize,
     selectorVegetables,
-} from '../reducer'
-import {CostSpan} from "./CostSpan";
-import {LABELS} from "../values";
+} from '../state'
+import { CostSpan } from './CostSpan'
+import { LABELS } from '../values'
 
 export function PizzaResult() {
     const state = usePizzaState()
