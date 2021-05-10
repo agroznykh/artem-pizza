@@ -9,6 +9,7 @@ import {
     selectorVegetables,
 } from '../reducer'
 import {CostSpan} from "./CostSpan";
+import {LABELS} from "../values";
 
 export function PizzaResult() {
     const state = usePizzaState()
@@ -26,25 +27,40 @@ export function PizzaResult() {
 
     return (
         <>
-            <h3>Ваша пицца:</h3>
-
+            <h3>{LABELS.yourPizza}:</h3>
             <div style={{ display: 'flex', flexFlow: 'column' }}>
-                <span>Размер - {size}</span>
-                <span>Тесто - {dough}</span>
-                <span>Соус - {sauce}</span>
+                <span>
+                    {LABELS.size} - {size}
+                </span>
+                <span>
+                    {LABELS.dough} - {dough}
+                </span>
+                <span>
+                    {LABELS.sauce} - {sauce}
+                </span>
             </div>
-
             {!!(cheeses.length || vegetables.length || meats.length) && (
                 <div style={{ display: 'flex', flexFlow: 'column' }}>
-                    <span style={{fontStyle: 'italic', margin: '10px 0'}}>Добавки:</span>
-                    {!!cheeses.length && <span>Сыры - {cheeses.join(', ')}</span>}
-                    {!!vegetables.length && <span>Овощи - {vegetables.join(', ')}</span>}
-                    {!!meats.length && <span>Мясо - {meats.join(', ')}</span>}
+                    <span style={{ fontStyle: 'italic', margin: '10px 0' }}>{LABELS.addons}:</span>
+                    {!!cheeses.length && (
+                        <span>
+                            {LABELS.cheeses} - {cheeses.join(', ')}
+                        </span>
+                    )}
+                    {!!vegetables.length && (
+                        <span>
+                            {LABELS.vegetables} - {vegetables.join(', ')}
+                        </span>
+                    )}
+                    {!!meats.length && (
+                        <span>
+                            {LABELS.meats} - {meats.join(', ')}
+                        </span>
+                    )}
                 </div>
             )}
-
-            <br/>
-            Итого: <CostSpan /> руб
+            <br />
+            {LABELS.total}: <CostSpan /> {LABELS.currency}
         </>
     )
 }

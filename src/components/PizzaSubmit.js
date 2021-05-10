@@ -1,6 +1,7 @@
 import { useDispatch } from '../PizzaProvider'
 import { actionSetSaved } from '../reducer'
 import { CostSpan } from './CostSpan'
+import {LABELS} from "../values";
 
 export function PizzaSubmit() {
     const dispatch = useDispatch()
@@ -11,7 +12,7 @@ export function PizzaSubmit() {
 
     return (
         <button onClick={buttonClicked}>
-            Заказать - <CostSpan /> руб.
+            {LABELS.makeOrder} - <CostSpan /> {LABELS.currency}.
         </button>
     )
 }
