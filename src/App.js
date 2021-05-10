@@ -8,6 +8,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <h1>{LABELS.configurator}</h1>
+                <h2>STAGING</h2>
                 <PizzaConfigurator />
                 <PizzaSubmit />
                 <PizzaResult />
