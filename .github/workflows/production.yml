@@ -30,9 +30,9 @@ jobs:
     - run: npm test
     - name: Deploy to Netlify
       uses: netlify/actions/cli@master
-      env: 
+      env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       with:
         args: deploy --dir=build --prod
-        secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+        secrets: '["NETLIFY_AUTH_TOKEN", "PROD_NETLIFY_SITE_ID"]'
