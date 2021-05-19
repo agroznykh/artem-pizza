@@ -1,4 +1,4 @@
-import { COSTS, SIZES } from './values'
+import { COSTS, SIZES } from './Values'
 
 export const calcPizzaPrice = (pizza) => {
     const { size, cheeses, vegetables, meats } = pizza

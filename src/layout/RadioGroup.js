@@ -1,11 +1,11 @@
-import { LabeledPiece } from './LabeledPiece'
-import { LABELS } from '../values'
+import { FixedWidthBlock } from './FixedWidthBlock'
 
 export const RadioGroup = ({ name, variants, onChange, value }) => {
     return (
-        <LabeledPiece label={LABELS[name]}>
+        <FixedWidthBlock>
+            <legend>{name}</legend>
             {Object.entries(variants).map(([key, variantValue]) => (
-                <div key={key}>
+                <fieldset key={key}>
                     <input
                         type="radio"
                         id={key}
@@ -15,8 +15,8 @@ export const RadioGroup = ({ name, variants, onChange, value }) => {
                         checked={value === variantValue}
                     />
                     <label htmlFor={key}>{variantValue}</label>
-                </div>
+                </fieldset>
             ))}
-        </LabeledPiece>
+        </FixedWidthBlock>
     )
 }

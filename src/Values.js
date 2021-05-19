@@ -1,20 +1,3 @@
-export const LABELS = {
-    configurator: 'Конфигуратор пиццы',
-
-    size: 'Размер',
-    dough: 'Тесто',
-    sauce: 'Соус',
-    cheeses: 'Сыры',
-    vegetables: 'Овощи',
-    meats: 'Мясо',
-
-    makeOrder: 'Заказать',
-    currency: 'руб',
-    yourPizza: 'Ваша пицца',
-    addons: 'Добавки',
-    total: 'Итого',
-}
-
 export const SIZES = {
     MEDIUM: 'Средняя - 30 см',
     BIG: 'Большая - 35 см',

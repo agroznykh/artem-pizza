@@ -1,7 +1,7 @@
 import { Configurator } from './containers/Configurator'
-import { LABELS } from './values'
 import { useState } from 'react'
-import { Order } from './containers/Order'
+import { Order } from './components/Order'
+import './App.css'
 
 function App() {
     const [order, setOrder] = useState(null)
@@ -9,7 +9,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>{LABELS.configurator}</h1>
+                <h1>Конфигуратор пиццы</h1>
                 <Configurator saveOrder={setOrder} />
                 {order && <Order pizza={order} />}
             </header>

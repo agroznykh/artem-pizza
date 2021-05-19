@@ -1,7 +1,7 @@
-import { CHEESES, DOUGHS, LABELS, MEATS, SAUCES, SIZES, VEGETABLES } from '../values'
+import { CHEESES, DOUGHS, MEATS, SAUCES, SIZES, VEGETABLES } from '../Values'
 import { useState } from 'react'
-import { RadioGroup } from '../components/RadioGroup'
-import { CheckboxGroup } from '../components/CheckboxGroup'
+import { RadioGroup } from '../layout/RadioGroup'
+import { CheckboxGroup } from '../layout/CheckboxGroup'
 import { calcPizzaPrice } from '../Utils'
 
 export const Configurator = ({ saveOrder }) => {
@@ -31,7 +31,7 @@ export const Configurator = ({ saveOrder }) => {
         }
     }
 
-    const makeOrder = (e) => {
+    const onOrderConfirmed = (e) => {
         e.preventDefault()
         saveOrder(pizza)
     }
@@ -39,34 +39,34 @@ export const Configurator = ({ saveOrder }) => {
     const pizzaPrice = calcPizzaPrice(pizza)
 
     return (
-        <form onSubmit={makeOrder}>
-            <div style={{ display: 'flex', flexFlow: 'column', flexWrap: 'wrap' }}>
-                <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
-                    <RadioGroup name="size" variants={SIZES} onChange={(e) => setSize(e.target.value)} value={size} />
+        <form onSubmit={onOrderConfirmed}>
+            <fieldset style={{ display: 'flex', flexFlow: 'column', flexWrap: 'wrap' }}>
+                <fieldset style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
+                    <RadioGroup name="Размер" variants={SIZES} onChange={(e) => setSize(e.target.value)} value={size} />
                     <RadioGroup
-                        name="dough"
+                        name="Тесто"
                         variants={DOUGHS}
                         onChange={(e) => setDough(e.target.value)}
                         value={dough}
                     />
                     <RadioGroup
-                        name="sauce"
+                        name="Соус"
                         variants={SAUCES}
                         onChange={(e) => setSauce(e.target.value)}
                         value={sauce}
                     />
-                </div>
+                </fieldset>
 
-                <div style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
+                <fieldset style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
                     <CheckboxGroup
-                        name="cheeses"
+                        name="Сыры"
                         variants={CHEESES}
                         onChange={(value, presents) => onCheckboxGroupChange(cheeses, setCheeses, value, presents)}
                         value={cheeses}
                     />
 
                     <CheckboxGroup
-                        name="vegetables"
+                        name="Овощи"
                         variants={VEGETABLES}
                         onChange={(value, presents) =>
                             onCheckboxGroupChange(vegetables, setVegetables, value, presents)
@@ -75,17 +75,15 @@ export const Configurator = ({ saveOrder }) => {
                     />
 
                     <CheckboxGroup
-                        name="meats"
+                        name="Мясо"
                         variants={MEATS}
                         onChange={(value, presents) => onCheckboxGroupChange(meats, setMeats, value, presents)}
                         value={meats}
                     />
-                </div>
-            </div>
+                </fieldset>
+            </fieldset>
 
-            <button type="submit">
-                {pizzaPrice} {LABELS.currency}
-            </button>
+            <button type="submit">{pizzaPrice} руб</button>
         </form>
     )
 }

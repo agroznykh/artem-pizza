@@ -1,13 +1,13 @@
-import { LABELS } from '../values'
-import { LabeledPiece } from './LabeledPiece'
+import { FixedWidthBlock } from './FixedWidthBlock'
 
 export const CheckboxGroup = ({ name, variants, onChange, value }) => {
     const _onChange = (e) => onChange(e.target.value, e.target.checked)
 
     return (
-        <LabeledPiece label={LABELS[name]}>
+        <FixedWidthBlock>
+            <legend>{name}</legend>
             {Object.entries(variants).map(([key, variantValue]) => (
-                <div key={key}>
+                <fieldset key={key}>
                     <input
                         type="checkbox"
                         id={key}
@@ -17,8 +17,8 @@ export const CheckboxGroup = ({ name, variants, onChange, value }) => {
                         checked={value.includes(variantValue)}
                     />
                     <label htmlFor={key}>{variantValue}</label>
-                </div>
+                </fieldset>
             ))}
-        </LabeledPiece>
+        </FixedWidthBlock>
     )
 }
