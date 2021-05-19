@@ -1,28 +1,8 @@
-import { usePizzaState } from '../PizzaProvider'
-import {
-    selectorCheeses,
-    selectorDough,
-    selectorMeats,
-    selectorSauce,
-    selectorSaved,
-    selectorSize,
-    selectorVegetables,
-} from '../state'
 import { LABELS } from '../values'
+import { calcPizzaPrice } from '../Utils'
 
-export function PizzaResult() {
-    const state = usePizzaState()
-
-    const saved = selectorSaved(state)
-
-    if (!saved) return null
-
-    const size = selectorSize(state)
-    const dough = selectorDough(state)
-    const sauce = selectorSauce(state)
-    const cheeses = selectorCheeses(state)
-    const vegetables = selectorVegetables(state)
-    const meats = selectorMeats(state)
+export function Order({ pizza }) {
+    const { size, dough, sauce, cheeses, vegetables, meats } = pizza
 
     return (
         <>
@@ -59,7 +39,7 @@ export function PizzaResult() {
                 </div>
             )}
             <br />
-            {LABELS.total}: 0 {LABELS.currency}
+            {LABELS.total}: {calcPizzaPrice(pizza)} {LABELS.currency}
         </>
     )
 }
