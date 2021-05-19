@@ -8,7 +8,6 @@ import {
     selectorSize,
     selectorVegetables,
 } from '../state'
-import { CostSpan } from './CostSpan'
 import { LABELS } from '../values'
 
 export function PizzaResult() {
@@ -60,7 +59,7 @@ export function PizzaResult() {
                 </div>
             )}
             <br />
-            {LABELS.total}: <CostSpan /> {LABELS.currency}
+            {LABELS.total}: 0 {LABELS.currency}
         </>
     )
 }
