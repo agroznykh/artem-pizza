@@ -1,9 +1,17 @@
-import { CHEESES, DOUGHS, MEATS, SAUCES, SIZES, VEGETABLES } from '../Values'
+import { CHEESES, COSTS, DOUGHS, MEATS, SAUCES, SIZES, VEGETABLES } from '../Values'
 import { useState } from 'react'
 import { RadioGroup } from '../layout/RadioGroup'
 import { CheckboxGroup } from '../layout/CheckboxGroup'
-import { calcPizzaPrice } from '../Utils'
 import { useHistory } from 'react-router-dom'
+
+const calcPizzaPrice = (pizza) => {
+    const { size, cheeses, vegetables, meats } = pizza
+
+    const sizeIncrease = size === SIZES.BIG ? 1 : 0
+    const addonsAmount = cheeses.length + vegetables.length + meats.length
+
+    return COSTS.BASE + COSTS.SIZE_INCREASE * sizeIncrease + COSTS.ADDON_INCREASE * addonsAmount
+}
 
 export const Configurator = ({ saveOrder }) => {
     const [size, setSize] = useState(SIZES.MEDIUM)
@@ -24,6 +32,8 @@ export const Configurator = ({ saveOrder }) => {
         meats,
     }
 
+    const price = calcPizzaPrice(pizza)
+
     const onCheckboxGroupChange = (arr, setter, value, presents) => {
         if (presents) {
             if (!arr.includes(value)) {
@@ -36,11 +46,9 @@ export const Configurator = ({ saveOrder }) => {
 
     const onOrderConfirmed = (e) => {
         e.preventDefault()
-        saveOrder(pizza)
+        saveOrder({ pizza, price })
         history.push('/order')
     }
-
-    const pizzaPrice = calcPizzaPrice(pizza)
 
     return (
         <>
@@ -94,7 +102,7 @@ export const Configurator = ({ saveOrder }) => {
                     </fieldset>
                 </fieldset>
 
-                <button type="submit">{pizzaPrice} руб</button>
+                <button type="submit">{price} руб</button>
             </form>
         </>
     )
