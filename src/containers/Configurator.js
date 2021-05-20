@@ -39,51 +39,59 @@ export const Configurator = ({ saveOrder }) => {
     const pizzaPrice = calcPizzaPrice(pizza)
 
     return (
-        <form onSubmit={onOrderConfirmed}>
-            <fieldset style={{ display: 'flex', flexFlow: 'column', flexWrap: 'wrap' }}>
-                <fieldset style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
-                    <RadioGroup name="Размер" variants={SIZES} onChange={(e) => setSize(e.target.value)} value={size} />
-                    <RadioGroup
-                        name="Тесто"
-                        variants={DOUGHS}
-                        onChange={(e) => setDough(e.target.value)}
-                        value={dough}
-                    />
-                    <RadioGroup
-                        name="Соус"
-                        variants={SAUCES}
-                        onChange={(e) => setSauce(e.target.value)}
-                        value={sauce}
-                    />
+        <>
+            <h1>Конфигуратор пиццы</h1>
+            <form onSubmit={onOrderConfirmed}>
+                <fieldset style={{ display: 'flex', flexFlow: 'column', flexWrap: 'wrap' }}>
+                    <fieldset style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
+                        <RadioGroup
+                            name="Размер"
+                            variants={SIZES}
+                            onChange={(e) => setSize(e.target.value)}
+                            value={size}
+                        />
+                        <RadioGroup
+                            name="Тесто"
+                            variants={DOUGHS}
+                            onChange={(e) => setDough(e.target.value)}
+                            value={dough}
+                        />
+                        <RadioGroup
+                            name="Соус"
+                            variants={SAUCES}
+                            onChange={(e) => setSauce(e.target.value)}
+                            value={sauce}
+                        />
+                    </fieldset>
+
+                    <fieldset style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
+                        <CheckboxGroup
+                            name="Сыры"
+                            variants={CHEESES}
+                            onChange={(value, presents) => onCheckboxGroupChange(cheeses, setCheeses, value, presents)}
+                            value={cheeses}
+                        />
+
+                        <CheckboxGroup
+                            name="Овощи"
+                            variants={VEGETABLES}
+                            onChange={(value, presents) =>
+                                onCheckboxGroupChange(vegetables, setVegetables, value, presents)
+                            }
+                            value={vegetables}
+                        />
+
+                        <CheckboxGroup
+                            name="Мясо"
+                            variants={MEATS}
+                            onChange={(value, presents) => onCheckboxGroupChange(meats, setMeats, value, presents)}
+                            value={meats}
+                        />
+                    </fieldset>
                 </fieldset>
 
-                <fieldset style={{ display: 'flex', flexFlow: 'row', flexWrap: 'wrap' }}>
-                    <CheckboxGroup
-                        name="Сыры"
-                        variants={CHEESES}
-                        onChange={(value, presents) => onCheckboxGroupChange(cheeses, setCheeses, value, presents)}
-                        value={cheeses}
-                    />
-
-                    <CheckboxGroup
-                        name="Овощи"
-                        variants={VEGETABLES}
-                        onChange={(value, presents) =>
-                            onCheckboxGroupChange(vegetables, setVegetables, value, presents)
-                        }
-                        value={vegetables}
-                    />
-
-                    <CheckboxGroup
-                        name="Мясо"
-                        variants={MEATS}
-                        onChange={(value, presents) => onCheckboxGroupChange(meats, setMeats, value, presents)}
-                        value={meats}
-                    />
-                </fieldset>
-            </fieldset>
-
-            <button type="submit">{pizzaPrice} руб</button>
-        </form>
+                <button type="submit">{pizzaPrice} руб</button>
+            </form>
+        </>
     )
 }
