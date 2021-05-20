@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { RadioGroup } from '../layout/RadioGroup'
 import { CheckboxGroup } from '../layout/CheckboxGroup'
 import { calcPizzaPrice } from '../Utils'
+import { useHistory } from 'react-router-dom'
 
 export const Configurator = ({ saveOrder }) => {
     const [size, setSize] = useState(SIZES.MEDIUM)
@@ -11,6 +12,8 @@ export const Configurator = ({ saveOrder }) => {
     const [cheeses, setCheeses] = useState([])
     const [vegetables, setVegetables] = useState([])
     const [meats, setMeats] = useState([])
+
+    const history = useHistory()
 
     const pizza = {
         size,
@@ -34,6 +37,7 @@ export const Configurator = ({ saveOrder }) => {
     const onOrderConfirmed = (e) => {
         e.preventDefault()
         saveOrder(pizza)
+        history.push('/order')
     }
 
     const pizzaPrice = calcPizzaPrice(pizza)

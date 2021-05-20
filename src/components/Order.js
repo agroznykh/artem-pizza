@@ -2,6 +2,8 @@ import { calcPizzaPrice } from '../Utils'
 import { OrderToppings } from './OrderToppings'
 
 export function Order({ pizza }) {
+    if (!pizza) return <h2>Заказ еще не сформирован</h2>
+
     const { size, dough, sauce } = pizza
 
     const hasToppings = (pizza) => {
