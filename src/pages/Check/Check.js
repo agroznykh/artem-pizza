@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { MainPageLink } from '../components/MainPageLink'
+import { MainPageLink } from '../../components/MainPageLink'
 
 export function Check() {
     const location = useLocation()

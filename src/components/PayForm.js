@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom'
 
-export function OrderForm({ price }) {
+export function PayForm({ price }) {
     const history = useHistory()
 
     const pay = (e) => {

@@ -47,7 +47,7 @@ export const Configurator = ({ saveOrder }) => {
     const onOrderConfirmed = (e) => {
         e.preventDefault()
         saveOrder({ pizza, price })
-        history.push('/order')
+        history.push('/order-pay')
     }
 
     return (
@@ -102,7 +102,7 @@ export const Configurator = ({ saveOrder }) => {
                     </fieldset>
                 </fieldset>
 
-                <button type="submit">{price} руб</button>
+                <button type="submit">Заказать на: {price} руб</button>
             </form>
         </>
     )

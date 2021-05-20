@@ -1,14 +1,14 @@
 import { Link, Route, Switch } from 'react-router-dom'
 import { useState } from 'react'
 import './App.css'
-import { NotFound } from './pages/NotFound'
-import { Configurator } from './containers/Configurator'
-import { MainPage } from './pages/MainPage'
-import { Registration } from './pages/Registration'
-import { Login } from './pages/Login'
-import { MakeOrder } from './pages/MakeOrder'
-import { Check } from './pages/Check'
-import { Archive } from './pages/Archive'
+import { NotFound } from './pages/NotFound/NotFound'
+import { MainPage } from './pages/Main/MainPage'
+import { Registration } from './pages/Registration/Registration'
+import { Login } from './pages/Login/Login'
+import { OrderPay } from './pages/OrderPay/OrderPay'
+import { Check } from './pages/Check/Check'
+import { Archive } from './pages/Archive/Archive'
+import { OrderCreate } from './pages/OrderCreate/OrderCreate'
 
 function App() {
     const [order, setOrder] = useState({ pizza: null, price: 0 })
@@ -20,7 +20,7 @@ function App() {
                     <Link to="/login">Логин</Link>
                 </p>
                 <p>
-                    <Link to="/configurator">Конфигуратор пиццы</Link>
+                    <Link to="/order-create">Конфигуратор пиццы</Link>
                 </p>
                 <p>
                     <Link to="/archive">Архив заказов</Link>
@@ -28,11 +28,11 @@ function App() {
             </nav>
             <br />
             <Switch>
-                <Route path="/configurator">
-                    <Configurator saveOrder={setOrder} />
+                <Route path="/order-create">
+                    <OrderCreate saveOrder={setOrder} />
                 </Route>
-                <Route path="/order">
-                    <MakeOrder order={order} />
+                <Route path="/order-pay">
+                    <OrderPay order={order} />
                 </Route>
                 <Route path="/check">
                     <Check />
