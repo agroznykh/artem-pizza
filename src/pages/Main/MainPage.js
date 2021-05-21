@@ -4,7 +4,7 @@ export function MainPage() {
     return (
         <>
             <h2>Вы на главной странице</h2>
-            <Link to="/configurator">Сделать заказ</Link>
+            <Link to="/order-create">Сделать заказ</Link>
         </>
     )
 }
