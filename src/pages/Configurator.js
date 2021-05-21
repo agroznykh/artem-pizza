@@ -1,7 +1,7 @@
 import { CHEESES, COSTS, DOUGHS, MEATS, SAUCES, SIZES, VEGETABLES } from '../Values'
 import { useState } from 'react'
-import { RadioGroup } from '../layout/RadioGroup'
-import { CheckboxGroup } from '../layout/CheckboxGroup'
+import { RadioGroup } from '../components-shared/RadioGroup'
+import { CheckboxGroup } from '../components-shared/CheckboxGroup'
 import { useHistory } from 'react-router-dom'
 
 const calcPizzaPrice = (pizza) => {

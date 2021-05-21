@@ -1,5 +1,5 @@
-import { Order } from '../../components/Order'
-import { PayForm } from '../../components/PayForm'
+import { Order } from './Order'
+import { PayForm } from './PayForm'
 
 export function OrderPay({ order }) {
     return (

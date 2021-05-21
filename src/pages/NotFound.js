@@ -1,4 +1,4 @@
-import { MainPageLink } from '../../components/MainPageLink'
+import { MainPageLink } from '../components/MainPageLink'
 
 export function NotFound() {
     return (
